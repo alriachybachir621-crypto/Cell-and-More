@@ -17,10 +17,9 @@ export interface Product {
 }
 
 export interface StoreSettings {
-  whatsappNumber: string; // e.g., '96170123456'
-  whatsappDisplay: string; // e.g., '+961 70 123 456'
+  whatsappNumber: string;
+  whatsappDisplay: string;
   facebookUrl: string;
-  shopAddress: string;
   openingHours: string;
   tagline: string;
 }

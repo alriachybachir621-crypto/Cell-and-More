@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Logo & Brand */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 text-left focus:outline-none group"
+            className="flex items-center gap-3 text-left focus:outline-none group cursor-pointer"
           >
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[#1E6FD9]/40 bg-zinc-900 flex-shrink-0 group-hover:border-[#1E6FD9] transition-all shadow-[0_0_15px_rgba(30,111,217,0.25)]">
               <img
@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <nav className="hidden md:flex items-center gap-1 lg:gap-2">
             <button
               onClick={() => handleNavClick('home')}
-              className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                 currentTab === 'home'
                   ? 'text-white bg-zinc-800/80 border border-zinc-700'
                   : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => handleNavClick('products')}
-              className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                 currentTab === 'products'
                   ? 'text-white bg-zinc-800/80 border border-zinc-700'
                   : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
@@ -76,13 +76,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => handleNavClick('contact')}
-              className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
+              className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                 currentTab === 'contact'
                   ? 'text-white bg-zinc-800/80 border border-zinc-700'
                   : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
               }`}
             >
-              Contact & Location
+              Contact
             </button>
           </nav>
 
@@ -106,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       setShowSearchInput(false);
                       setSearchQuery('');
                     }}
-                    className="text-zinc-500 hover:text-white ml-1"
+                    className="text-zinc-500 hover:text-white ml-1 cursor-pointer"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -117,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     setShowSearchInput(true);
                     if (currentTab !== 'products') setCurrentTab('products');
                   }}
-                  className="p-2 sm:px-3 sm:py-2 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-full sm:rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5"
+                  className="p-2 sm:px-3 sm:py-2 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-full sm:rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5 cursor-pointer"
                   title="Search products"
                 >
                   <Search className="w-4 h-4" />
@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Direct WhatsApp button */}
             <a
-              href={generateGeneralInquiryWhatsAppUrl(DEFAULT_WHATSAPP_NUMBER)}
+              href="https://wa.me/96171109298"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#1E6FD9] hover:bg-[#1858ad] text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold shadow-md shadow-[#1E6FD9]/20 transition-all active:scale-95"
@@ -141,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-zinc-400 hover:text-white focus:outline-none"
+              className="md:hidden p-2 text-zinc-400 hover:text-white focus:outline-none cursor-pointer"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-white" />}
@@ -154,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="md:hidden py-4 border-t border-zinc-800 space-y-2 bg-zinc-950/95 px-2 rounded-b-2xl animate-in slide-in-from-top duration-200">
             <button
               onClick={() => handleNavClick('home')}
-              className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold ${
+              className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold cursor-pointer ${
                 currentTab === 'home' ? 'bg-[#1E6FD9]/20 text-[#1E6FD9] border border-[#1E6FD9]/40' : 'text-zinc-300'
               }`}
             >
@@ -162,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => handleNavClick('products')}
-              className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold ${
+              className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold cursor-pointer ${
                 currentTab === 'products' ? 'bg-[#1E6FD9]/20 text-[#1E6FD9] border border-[#1E6FD9]/40' : 'text-zinc-300'
               }`}
             >
@@ -170,22 +170,22 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => handleNavClick('contact')}
-              className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold ${
+              className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold cursor-pointer ${
                 currentTab === 'contact' ? 'bg-[#1E6FD9]/20 text-[#1E6FD9] border border-[#1E6FD9]/40' : 'text-zinc-300'
               }`}
             >
-              Contact & Location
+              Contact
             </button>
 
             <div className="pt-2 border-t border-zinc-800">
               <a
-                href={generateGeneralInquiryWhatsAppUrl(DEFAULT_WHATSAPP_NUMBER)}
+                href="https://wa.me/96171109298"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5b] text-black font-bold py-2.5 rounded-xl text-sm shadow-md"
               >
                 <MessageCircle className="w-4 h-4 fill-black" />
-                Chat on WhatsApp (+961)
+                Chat on WhatsApp (+961 71 109 298)
               </a>
             </div>
           </div>

@@ -1,6 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { MessageCircle, MapPin, Phone, ShieldCheck, Truck, Clock } from 'lucide-react';
-import { DEFAULT_WHATSAPP_NUMBER, DEFAULT_WHATSAPP_DISPLAY, DEFAULT_FACEBOOK_URL, DEFAULT_SHOP_ADDRESS, generateGeneralInquiryWhatsAppUrl } from '@/utils/whatsapp';
+import { MessageCircle, Facebook, ShieldCheck, Truck, Clock } from 'lucide-react';
+import {
+  DEFAULT_WHATSAPP_NUMBER,
+  DEFAULT_WHATSAPP_DISPLAY,
+  DEFAULT_FACEBOOK_URL,
+  generateGeneralInquiryWhatsAppUrl,
+} from '@/utils/whatsapp';
 
 interface FooterProps {
   onSecretAdminTrigger: () => void;
@@ -96,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
             </div>
             <p className="text-xs sm:text-sm text-zinc-400 max-w-sm leading-relaxed">
-              Your trusted shop for the latest mobile phones, certified chargers, heavy-duty drop-proof cases, and high-fidelity tech accessories. Delivery available across all Lebanese regions.
+              Your trusted shop for the latest mobile phones, certified chargers, heavy-duty drop-proof cases, and high-fidelity tech accessories with delivery available across Lebanon.
             </p>
           </div>
 
@@ -151,21 +156,17 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Reach Us - No address or location, WhatsApp and Facebook only */}
           <div>
             <h4 className="text-white text-sm font-bold tracking-wider uppercase mb-3">Reach Us</h4>
-            <ul className="space-y-2 text-xs sm:text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#1E6FD9] flex-shrink-0 mt-0.5" />
-                <span>{DEFAULT_SHOP_ADDRESS}</span>
-              </li>
+            <ul className="space-y-3 text-xs sm:text-sm">
               <li className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-[#25D366] flex-shrink-0" />
                 <a
-                  href={generateGeneralInquiryWhatsAppUrl(DEFAULT_WHATSAPP_NUMBER)}
+                  href="https://wa.me/96171109298"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white text-[#25D366] transition-colors font-medium"
+                  className="hover:text-white text-[#25D366] transition-colors font-mono font-medium"
                 >
                   {DEFAULT_WHATSAPP_DISPLAY}
                 </a>
@@ -174,14 +175,15 @@ export const Footer: React.FC<FooterProps> = ({
                 <Clock className="w-4 h-4 text-zinc-500 flex-shrink-0" />
                 <span>Mon – Sat: 9:00 AM – 8:00 PM</span>
               </li>
-              <li className="pt-2">
+              <li className="pt-1">
                 <a
                   href={DEFAULT_FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-xs text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900 hover:bg-[#1E6FD9] text-xs text-white border border-zinc-800 hover:border-[#1E6FD9] transition-all font-semibold active:scale-95"
                 >
-                  <span>Facebook Official Page</span>
+                  <Facebook className="w-3.5 h-3.5 fill-current" />
+                  <span>Visit us on Facebook</span>
                 </a>
               </li>
             </ul>

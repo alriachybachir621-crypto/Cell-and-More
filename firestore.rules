@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isShopAdmin() {
+      return request.auth != null &&
+        exists(/databases/$(database)/documents/config/admin) &&
+        request.auth.uid == get(/databases/$(database)/documents/config/admin).data.adminUid;
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isShopAdmin();
+    }
+
+    match /config/admin {
+      allow read: if request.auth != null || !exists(/databases/$(database)/documents/config/admin);
+      allow create: if request.auth != null && !exists(/databases/$(database)/documents/config/admin);
+      allow update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

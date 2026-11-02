@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /x-cm-7k2q9
+Allow: /

@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Mobile phone or accessory item in Cell and More catalog",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Product title",
+          "maxLength": 150
+        },
+        "price": {
+          "type": "number",
+          "description": "Price in USD"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category name",
+          "maxLength": 50
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed item description",
+          "maxLength": 5000
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "Base64 encoded or image URL"
+        },
+        "inStock": {
+          "type": "boolean",
+          "description": "Stock status"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["name", "price", "category", "inStock"]
+    },
+    "AdminConfig": {
+      "title": "AdminConfig",
+      "description": "Stores admin UID to restrict backend writes",
+      "type": "object",
+      "properties": {
+        "adminUid": {
+          "type": "string",
+          "description": "Firebase Auth UID for the shop administrator",
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Setup timestamp"
+        }
+      },
+      "required": ["adminUid"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of store products"
+    },
+    "/config/admin": {
+      "schema": "AdminConfig",
+      "description": "Configuration document storing the admin UID"
+    }
+  }
+}
